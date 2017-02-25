@@ -1,0 +1,25 @@
+{
+  "name": "hackurba",
+  "version": "1.0.0",
+  "description": "HackUrba prototype",
+  "main": "index.js",
+  "repository": "git@github.com:jdesboeufs/hackurba.git",
+  "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "node server"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "leaflet": "^1.0.3",
+    "preact": "^7.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "babel-preset-env": "^1.1.10",
+    "webpack": "^2.2.1"
+  }
+}

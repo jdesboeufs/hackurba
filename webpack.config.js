@@ -3,6 +3,7 @@ module.exports = {
   output: {
     filename: 'dist/bundle.js'
   },
+  devtool: 'eval',
   module: {
     rules: [
       {

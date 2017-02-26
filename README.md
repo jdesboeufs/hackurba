@@ -11,7 +11,8 @@ Consulter les règles d'urbanisme applicables à une adresse
 
 ```bash
 yarn
-yarn dev```
+yarn dev
+```
 
 Et la suite est sur [localhost](http://localhost:5000) !
 
@@ -19,13 +20,14 @@ Et la suite est sur [localhost](http://localhost:5000) !
 
 ```bash
 yarn build
-yarn deploy```
+yarn deploy
+```
 
 Facile hein ?
 
 ## API utilisées
 
-* urbapi de @cquest
+* [urbapi](https://github.com/cquest/hackurbapi) de @cquest
 * [GéoAPI](https://api.gouv.fr/api/geoapi.html)
 
 ## Philosophie

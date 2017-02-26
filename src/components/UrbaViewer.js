@@ -58,6 +58,8 @@ function CommuneInfos({ nom, code, codesPostaux, population, departement, region
 export default class UrbaViewer extends Component {
   render({ normalizedAddress, gpuInfos, communeInfos }) {
     if (!normalizedAddress || !gpuInfos) return null
+    const lat = normalizedAddress.geometry.coordinates[1]
+    const lon = normalizedAddress.geometry.coordinates[0]
 
     const parsedInfos = groupBy(gpuInfos, 'properties.layer')
     const zone = (parsedInfos.zone_urba || []).find(z => inside(normalizedAddress, z))
@@ -66,6 +68,7 @@ export default class UrbaViewer extends Component {
       <div class="ui main text container">
         <h1 class="ui header">Règles d'urbanisme</h1>
         <div>Analyse pour : <strong>{normalizedAddress.properties.label}</strong></div>
+        <div><a href={`https://umap.openstreetmap.fr/fr/map/new?dataUrl=https%3A%2F%2Fgeo.api.gouv.fr%2Fgpu%3Flon%3D${lon}%26lat%3D${lat}%26dist%3D50`}>Accéder à la carte avec les données brutes</a></div>
         <h2>Zonage (PLU)</h2>
         {zone ? <Zone {...zone.properties} /> : <p>Vide</p>}
         <h2>Prescriptions</h2>

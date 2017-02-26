@@ -12,7 +12,7 @@ export default class Layout extends Component {
   // Example: 371 Route de la Côte 74290 Alex
 
   searchAddr(addr) {
-    fetch(`http://api-adresse.data.gouv.fr/search/?q=${addr}`)
+    fetch(`https://api-adresse.data.gouv.fr/search/?q=${addr}`)
       .then(response => response.json())
       .then(response => {
         if (!response.features || response.features.length === 0) throw new Error('No geocode result')

@@ -2,6 +2,24 @@ import { h, Component } from 'preact'
 import { bind } from 'decko'
 import UrbaViewer from './UrbaViewer'
 
+const examples = [
+  '371 Route de la Côte 74290 Alex'
+]
+
+function Examples({ searchAddr }) {
+  return (
+    <div style="margin-top: 2em">
+      <h4 class="ui header">
+        Exemples
+        <div class="sub header">Les adresses ci-dessous sont là pour vous aider.</div>
+      </h4>
+      <ul>
+        {examples.map(ex => <li><a href="#" onClick={() => searchAddr(ex)}>{ex}</a></li>)}
+      </ul>
+    </div>
+  )
+}
+
 export default class Layout extends Component {
 
   @bind
@@ -9,8 +27,7 @@ export default class Layout extends Component {
     this.searchAddr(event.target.value)
   }
 
-  // Example: 371 Route de la Côte 74290 Alex
-
+  @bind
   searchAddr(addr) {
     fetch(`https://api-adresse.data.gouv.fr/search/?q=${addr}`)
       .then(response => response.json())
@@ -46,20 +63,22 @@ export default class Layout extends Component {
       <div class="ui">
         <div class="ui fixed menu">
           <div class="ui container">
-            <a href="#" class="header item">HackUrba</a>
-            <div class="ui item">
-              <div class="ui transparent icon input">
-                <input class="prompt large" type="text" placeholder="Saisissez une adresse…" onChange={this.onChange} />
-                <i class="search link icon"></i>
-              </div>
-            </div>
+            <a href="/hackurba" class="header item">HackUrba</a>
           </div>
         </div>
-        <div class="ui main text container">
-          <h2>Exemples</h2>
-          <ul>
-            <li>371 Route de la Côte 74290 Alex</li>
-          </ul>
+        <div style="margin-top: 5em" class="ui main text container">
+          <h1 class="ui header">
+            Règles d'urbanisme applicables à une adresse
+            <div class="sub header">Commencez par saisir une adresse dans le champs suivant.</div>
+          </h1>
+          <p></p>
+          <div class="ui search">
+            <div class="ui icon input">
+              <input class="prompt big" size="50" type="text" placeholder="Saisissez une adresse…" onChange={this.onChange} />
+              <i class="search icon"></i>
+            </div>
+          </div>
+          {this.state.normalizedAddress ? null : <Examples searchAddr={this.searchAddr} />}
         </div>
         <UrbaViewer normalizedAddress={this.state.normalizedAddress} gpuInfos={this.state.gpuInfos} communeInfos={this.state.communeInfos} />
       </div>

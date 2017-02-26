@@ -65,10 +65,9 @@ export default class UrbaViewer extends Component {
     const zone = (parsedInfos.zone_urba || []).find(z => inside(normalizedAddress, z))
 
     return (
-      <div class="ui main text container">
-        <h1 class="ui header">Règles d'urbanisme</h1>
+      <div class="ui main text container" style="margin-top: 2em">
         <div>Analyse pour : <strong>{normalizedAddress.properties.label}</strong></div>
-        <div><a href={`https://umap.openstreetmap.fr/fr/map/new?dataUrl=https%3A%2F%2Fgeo.api.gouv.fr%2Fgpu%3Flon%3D${lon}%26lat%3D${lat}%26dist%3D50`}>Accéder à la carte avec les données brutes</a></div>
+        <div><a href={`https://umap.openstreetmap.fr/fr/map/new?dataUrl=https%3A%2F%2Fgeo.api.gouv.fr%2Fgpu%3Flon%3D${lon}%26lat%3D${lat}%26dist%3D50`}>Accéder à la carte avec les données brutes</a> (attention c'est moche)</div>
         <h2>Zonage (PLU)</h2>
         {zone ? <Zone {...zone.properties} /> : <p>Vide</p>}
         <h2>Prescriptions</h2>

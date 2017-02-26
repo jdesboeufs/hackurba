@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "webpack && node server",
     "build": "webpack -p",
-    "start": "node server"
+    "start": "node server",
+    "deploy": "cp public/* dist/ && gh-pages -d dist"
   },
   "dependencies": {
     "@turf/turf": "^3.10.3",
@@ -25,6 +26,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-preset-env": "^1.1.10",
+    "gh-pages": "^0.12.0",
     "webpack": "^2.2.1"
   }
 }

@@ -7,7 +7,9 @@
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack && node server"
+    "dev": "webpack && node server",
+    "build": "webpack -p",
+    "start": "node server"
   },
   "dependencies": {
     "@turf/turf": "^3.10.3",

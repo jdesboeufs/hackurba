@@ -26,7 +26,7 @@ export default class Layout extends Component {
   }
 
   fetchGPUInfos(lat, lon) {
-    fetch(`http://stmaur.cquest.org/gpu?lon=${lon}&lat=${lat}&dist=50`)
+    fetch(`https://geo.api.gouv.fr/gpu?lon=${lon}&lat=${lat}&dist=50`)
       .then(response => response.json())
       .then(response => {
         if (!response.features || response.features.length === 0) return []

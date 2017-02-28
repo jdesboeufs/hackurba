@@ -3,7 +3,8 @@ import { bind } from 'decko'
 import UrbaViewer from './UrbaViewer'
 
 const examples = [
-  '371 Route de la Côte 74290 Alex'
+  '371 Route de la Côte 74290 Alex',
+  '9 Route de Sogny 51520 Sarry'
 ]
 
 function Examples({ searchAddr }) {
